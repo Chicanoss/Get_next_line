@@ -6,7 +6,7 @@
 /*   By: rgeral <rgeral@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 11:56:53 by rgeral            #+#    #+#             */
-/*   Updated: 2021/11/29 12:10:25 by rgeral           ###   ########.fr       */
+/*   Updated: 2021/11/29 12:16:47 by rgeral           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,4 +22,18 @@ int	ft_strlen(const char	*str)
 		i++;
 	}
 	return (i);
+}
+
+char	*ft_strrchr(const char *str, int c)
+{
+	int	i;
+
+	i = ft_strlen(str);
+	while (i >= 0)
+	{
+		if ((unsigned char)str[i] == (unsigned char)c)
+			return ((char *)&str[i]);
+		i--;
+	}
+	return (NULL);
 }

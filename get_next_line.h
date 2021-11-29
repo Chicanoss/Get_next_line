@@ -6,7 +6,7 @@
 /*   By: rgeral <rgeral@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 11:59:15 by rgeral            #+#    #+#             */
-/*   Updated: 2021/11/29 12:11:50 by rgeral           ###   ########.fr       */
+/*   Updated: 2021/11/29 12:16:22 by rgeral           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,8 @@
 # define GET_NEXT_LINE_H
 
 # ifndef BUFFER_SIZE
-# define BUFFER_SIZE 42
-
-#endif
+#  define BUFFER_SIZE 42
+# endif
 
 #include <unistd.h>
 #include <stdio.h>
