@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rgeral <rgeral@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rgeral <rgeral@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 11:59:15 by rgeral            #+#    #+#             */
-/*   Updated: 2021/11/29 12:16:22 by rgeral           ###   ########.fr       */
+/*   Updated: 2021/11/30 11:30:19 by rgeral           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,9 @@
 #include <stdlib.h>
 
 char *get_next_line(int fd);
-int	ft_strlen(const char	*str);
-char	*ft_strrchr(const char *str, int c);
+size_t	ft_strlen(char *str);
+char	*ft_strchr(const char *str, int schar);
+char	*ft_strjoin(char *s1, char *s2);
+char	*ft_strndup(char *s1, char c);
 
 #endif

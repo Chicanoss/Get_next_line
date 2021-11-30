@@ -3,34 +3,74 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rgeral <rgeral@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rgeral <rgeral@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/26 18:34:31 by rgeral            #+#    #+#             */
-/*   Updated: 2021/11/29 12:27:59 by rgeral           ###   ########.fr       */
+/*   Created: 2021/11/29 15:20:15 by rgeral            #+#    #+#             */
+/*   Updated: 2021/11/30 15:12:23 by rgeral           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-
-char *get_next_line(int fd)
+static char	*extract_nl(char **str)
 {
-	char buffer[BUFFER_SIZE];
-	int	size;
-	char	str[BUFFER_SIZE + 1];
+	char	*save;
+	char	*tmp;
 
-	size = read(fd, buffer, BUFFER_SIZE);
-	str = buffer;
-	str[size] = '\0';
-	printf("%s" , str);
-	return(str);
+	tmp = ft_strndup(*str, '\n');
+	save = ft_strndup(ft_strchr(*str, '\n') + 1, '\0');
+	free(*str);
+	*str = save;
+	return (tmp);
+}
+
+static char	*scotch(char *str)
+{
+	free(str);
+	return (0);
+}
+
+char	*get_next_line(int fd)
+{
+	int			i;
+	char		buf[BUFFER_SIZE + 1];
+	static char	*str = NULL;
+	char		*tmp;
+
+	tmp = 0;
+	i = 1;
+	if (read(fd, buf, 0) < 0)
+		return (NULL);
+	while (!ft_strchr(str, '\n') && i != 0)
+	{
+		i = read(fd, buf, BUFFER_SIZE);
+		if (i < 0)
+			return (0);
+		buf[i] = '\0';
+		str = ft_strjoin(str, buf);
+		printf("valeur de buf :  %s ", buf);
+		if (!str)
+			return (0);
+	}
+	if (ft_strchr(str, '\n'))
+		return (extract_nl(&str));
+	if (str && str[0])
+		tmp = ft_strndup(str, '\0');
+	str = scotch(str);
+	return (tmp);
 }
 
 int	main(void)
 {
 	int	fd;
+	int	i;
 
 	fd = open("test", 0x000);
-	get_next_line(fd);
+	i = 0;
+	while(i < 10)
+	{
+		get_next_line(fd);
+		i++;
+	}
 	return(0);
 }
