@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rgeral <rgeral@student.42lyon.fr>          +#+  +:+       +#+        */
+/*   By: rgeral <rgeral@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 15:20:15 by rgeral            #+#    #+#             */
-/*   Updated: 2021/11/30 15:12:23 by rgeral           ###   ########.fr       */
+/*   Updated: 2021/12/04 15:44:14 by rgeral           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,6 @@ char	*get_next_line(int fd)
 			return (0);
 		buf[i] = '\0';
 		str = ft_strjoin(str, buf);
-		printf("valeur de buf :  %s ", buf);
 		if (!str)
 			return (0);
 	}
@@ -58,19 +57,4 @@ char	*get_next_line(int fd)
 		tmp = ft_strndup(str, '\0');
 	str = scotch(str);
 	return (tmp);
-}
-
-int	main(void)
-{
-	int	fd;
-	int	i;
-
-	fd = open("test", 0x000);
-	i = 0;
-	while(i < 10)
-	{
-		get_next_line(fd);
-		i++;
-	}
-	return(0);
 }

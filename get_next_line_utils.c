@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rgeral <rgeral@student.42lyon.fr>          +#+  +:+       +#+        */
+/*   By: rgeral <rgeral@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 11:56:53 by rgeral            #+#    #+#             */
-/*   Updated: 2021/11/30 15:02:02 by rgeral           ###   ########.fr       */
+/*   Updated: 2021/12/04 15:45:49 by rgeral           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,6 @@ char	*ft_strndup(char *s1, char c)
 		i++;
 	}
 	array_ptr[i] = '\0';
-	//printf("valeur de retour temp : %s ", array_ptr);
 	return (array_ptr);
 }
 
